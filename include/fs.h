@@ -12,14 +12,8 @@
 
 #define DEV_NULL "/dev/null"
 
-char *base_name(char *);
-char *dir_name(char *);
-
-DIR *get_dir(int *, const char *);
-FILE *get_file(int *, const char *, const char *);
-
-FILE *open_pipe(int *, const char *, const char *);
-int close_pipe(FILE *);
+DIR *FS_opendir(int *, const char *);
+FILE *FS_fopen(int *, const char *, const char *);
 
 int is_dir(const char *);
 int is_file(const char *);
