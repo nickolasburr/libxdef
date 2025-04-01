@@ -1,48 +1,40 @@
 /**
- * fs.h
+ * fs.c
  *
  * Copyright (C) 2025 Nickolas Burr <nickolasburr@gmail.com>
  */
 
-#include <string.h>
 #include "fs.h"
-#include "types/str.h"
 
-/**
- * GNU-style basename
- */
-char *base_name(char *path) {
-	char *base = strrchr(path, '/');
-	return base ? (base + 1) : path;
+DIR *FS_opendir(
+	int *error,
+	const char *path
+) {
+	DIR *dir = NULL;
+
+	*error = 0;
+	dir = opendir(path);
+
+	if (dir == NULL) {
+		*error = 1;
+	}
+
+	return dir;
 }
 
-/**
- * GNU-style dirname
- */
-char *dir_name(char *path) {
-	char *pslash = NULL;
+FILE *FS_fopen(
+	int *error,
+	const char *name,
+	const char *mode
+) {
+	FILE *file = NULL;
 
-	/**
-	 * Get trailing slash.
-	 */
-	pslash = path != NULL
-	       ? strrchr(path, '/') : NULL;
+	*error = 0;
+	file = fopen(name, mode);
 
-	if (pslash == path) {
-		++pslash;
-	} else if (pslash != NULL && pslash[1] == '\0') {
-		pslash = memchr(
-			path,
-			pslash - path,
-			'/'
-		);
+	if (file == NULL) {
+		*error = 1;
 	}
 
-	if (pslash != NULL) {
-		pslash[0] = '\0';
-	} else {
-		path = ".";
-	}
-
-	return path;
+	return file;
 }
