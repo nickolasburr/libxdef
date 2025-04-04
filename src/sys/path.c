@@ -9,7 +9,7 @@
 /**
  * GNU-style basename
  */
-const char *SYS_PATH_basename(const char *path) {
+const char *PATH_basename(const char *path) {
 	const char *base = strrchr(path, '/');
 	return base ? (base + 1) : path;
 }
@@ -17,7 +17,7 @@ const char *SYS_PATH_basename(const char *path) {
 /**
  * GNU-style dirname
  */
-const char *SYS_PATH_dirname(const char *path) {
+const char *PATH_dirname(const char *path) {
 	char *pslash = NULL;
 
 	/**
