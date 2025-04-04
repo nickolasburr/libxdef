@@ -7,7 +7,7 @@
 #include "mem.h"
 #include "types/str.h"
 
-char *concat(
+char *STR_concat(
 	const char *a,
 	const char *b
 ) {
@@ -20,7 +20,7 @@ char *concat(
 	);
 }
 
-char *copy(const char *str) {
+char *STR_copy(const char *str) {
 	char *buf = ALLOC(
 		sizeof(char) * (strlen(str) + NUL_BYTE)
 	);
