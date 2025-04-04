@@ -9,14 +9,14 @@
 #include "mem.h"
 #include "types/str.h"
 
-double get_elapsed_ticks(clock_t start) {
+double CLOCK_get_elapsed_ticks(clock_t start) {
 	double diff;
 
 	diff = (double)(clock() - start);
 	return (diff / CLOCKS_PER_SEC);
 }
 
-char *get_timestamp(void) {
+char *CLOCK_get_timestamp(void) {
 	time_t lt = time(NULL);
 	struct tm tm = *localtime(&lt);
 	static const char *format = "%d:%.2d:%.2d on %.2d-%.2d-%d";

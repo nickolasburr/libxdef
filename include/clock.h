@@ -9,7 +9,7 @@
 
 #include <time.h>
 
-double get_elapsed_ticks(clock_t);
-char *get_timestamp(void);
+double CLOCK_get_elapsed_ticks(clock_t);
+const char *CLOCK_get_timestamp(void);
 
 #endif /* XDEF_CLOCK_H */

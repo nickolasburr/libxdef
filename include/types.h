@@ -9,7 +9,7 @@
 
 #define IS_NULL(ptr) ((ptr) == ((void *) 0))
 
-int is_alphanum(char *);
-int is_numeric(char *);
+int is_alphanum(const char *);
+int is_numeric(const char *);
 
 #endif /* XDEF_TYPES_H */

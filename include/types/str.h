@@ -10,7 +10,7 @@
 #define CRLF "\r\n"
 #define NUL_BYTE 1
 
-char *concat(const char *, const char *);
-char *copy(const char *);
+char *STR_concat(const char *, const char *);
+char *STR_copy(const char *);
 
 #endif /* XDEF_TYPES_STR_H */
