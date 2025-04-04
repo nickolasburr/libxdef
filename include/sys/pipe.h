@@ -10,7 +10,7 @@
 #include <dirent.h>
 #include <stdio.h>
 
-FILE *SYS_PIPE_open(int *, const char *, const char *);
-int SYS_PIPE_close(FILE *);
+FILE *PIPE_popen(int *, const char *, const char *);
+int PIPE_pclose(int *, FILE *);
 
 #endif /* XDEF_SYS_PIPE_H */

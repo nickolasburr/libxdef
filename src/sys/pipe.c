@@ -4,9 +4,9 @@
  * Copyright (C) 2025 Nickolas Burr <nickolasburr@gmail.com>
  */
 
-#include "pipe.h"
+#include "sys/pipe.h"
 
-FILE *SYS_PIPE_open(
+FILE *PIPE_popen(
 	int *error,
 	const char *cmd,
 	const char *mode
@@ -23,6 +23,18 @@ FILE *SYS_PIPE_open(
 	return pipe;
 }
 
-int SYS_PIPE_close(FILE *pipe) {
-	return pclose(pipe);
+int PIPE_pclose(
+	int *error,
+	FILE *pipe
+) {
+	int result;
+
+	*error = 0;
+	result = pclose(pipe);
+
+	if (result == -1) {
+		*error = 1;
+	}
+
+	return result;
 }
